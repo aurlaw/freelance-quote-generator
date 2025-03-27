@@ -6,6 +6,18 @@ using Scalar.AspNetCore;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
+
+// Add CORS services
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy( policy =>
+    {
+        policy.AllowAnyOrigin()
+               .AllowAnyHeader()
+               .AllowAnyMethod();
+    });
+});
+
 // Add services to the container.
 // Add SQLite
 builder.Services.AddDbContext<QuoteDbContext>(options =>
@@ -75,8 +87,14 @@ app.MapPost("/quotes", async (QuoteRequest request, QuoteDbContext db) =>
     await db.SaveChangesAsync();
     return Results.Created($"/quotes/{request.Id}", request);
 });
+app.MapGet("/quotes/{id}", async (int id, QuoteDbContext db) =>
+{
+    var quote = await db.Quotes.FindAsync(id);
+    return quote is not null ? Results.Ok(quote) : Results.NotFound();
+});
 
 
+app.UseCors();
 app.UseHttpsRedirection();
 
 app.Run();

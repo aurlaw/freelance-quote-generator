@@ -3,11 +3,11 @@ var builder = DistributedApplication.CreateBuilder(args);
 var quoteApi = builder.AddProject<Projects.QuoteApi>("quoteapi")
     .WithExternalHttpEndpoints();
 
-var quoteFrontend = builder.AddNpmApp("quotefrontend", "../quote-frontend")
+builder.AddNpmApp("quoteGenerator", "../quote-generator", "aspire")
     .WithReference(quoteApi)
     .WaitFor(quoteApi)
-    .WithEnvironment("BROWSER", "none")
-    .WithHttpEndpoint(env: "VITE_PORT")
+    .WithEnvironment("NEXT_PUBLIC_QUOTE_API_URL", quoteApi.GetEndpoint("http"))    
+    .WithHttpEndpoint(env: "PORT")
     .WithExternalHttpEndpoints();
 
 builder.Build().Run();
