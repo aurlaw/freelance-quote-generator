@@ -2,12 +2,18 @@
 
 A full-stack app for estimating freelance project costs and times. Uses a .NET 9 Minimal API backend (SQLite) and a Next.js frontend, orchestrated with .NET Aspire.
 
-## Overview
 
-This project showcases a modern full-stack setup:
-- **Backend:** .NET 9 Minimal API calculates estimates, storing results in SQLite.
-- **Frontend:** Next.js (TypeScript, Tailwind CSS).
-- **Orchestration:** .NET Aspire manages the monorepo and service discovery.
+## Overview
+This project showcases a versatile full-stack setup:
+
+- Backend: .NET 9 Minimal API calculates estimates and stores them in SQLite.
+- Frontends:
+    - Next.js: Server-side rendered app with TypeScript and Tailwind CSS.
+
+    - Vue 3: Client-side app with TypeScript, Vue Router, and Tailwind CSS.
+
+- Orchestration: .NET Aspire manages services and dynamic API proxying.
+
 
 
 ## Features
