@@ -12,6 +12,8 @@ This project showcases a versatile full-stack setup:
 
     - Vue 3: Client-side app with TypeScript, Vue Router, and Tailwind CSS.
 
+    - Svelte: Client-side app with TypeScript, SvelteKit, and Tailwind CSS.
+
 - Orchestration: .NET Aspire manages services and dynamic API proxying.
 
 
@@ -48,6 +50,5 @@ This dashboard will allow to access all of the services running, view logs and c
 ## Notes
 
 The Quote API uses Scaler for Open API documentation, this is available at `{quoteapi_URL}/scaler-reference`
-
 
 
