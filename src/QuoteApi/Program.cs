@@ -39,8 +39,9 @@ using (var scope = app.Services.CreateScope())
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
-    app.MapScalarApiReference(options =>
+    app.MapScalarApiReference("/scaler-reference", options =>
     {
+        options.Title = "Quote API";
         options.Layout = ScalarLayout.Modern;
         options.Theme = ScalarTheme.Moon;
         options.WithDefaultHttpClient(ScalarTarget.JavaScript, ScalarClient.Axios);
@@ -56,29 +57,29 @@ app.MapPost("/quotes", async (QuoteRequest request, QuoteDbContext db) =>
     // Calculate estimate
     decimal baseCost = request.ProjectType switch
     {
-        "Website" => 1000,
-        "Web App" => 2000,
-        "Mobile Add-On" => 500,
+        "Website" => 1200,
+        "Web App" => 2500,
+        "Mobile Add-On" => 750,
         _ => 1000
     };
 
     decimal scopeMultiplier = request.Scope switch
     {
         "Small" => 1.0m,
-        "Medium" => 1.5m,
-        "Large" => 2.0m,
+        "Medium" => 1.85m,
+        "Large" => 3.0m,
         _ => 1.0m
     };
 
-    decimal cost = baseCost * scopeMultiplier * (request.IsRush ? 1.2m : 1.0m);
+    decimal cost = baseCost * scopeMultiplier * (request.IsRush ? 1.35m : 1.0m);
     string time = request.Scope switch
     {
         "Small" => "1 week",
-        "Medium" => "2 weeks",
-        "Large" => "3 weeks",
+        "Medium" => request.IsRush ? "10 days" : "2 weeks",
+        "Large" => request.IsRush ? "3 weeks" : "4 weeks",
         _ => "1 week"
     };
-    time = request.IsRush ? time.Replace("weeks", "week") : time;
+    // time = request.IsRush ? time.Replace("weeks", "week") : time;
 
     request.EstimatedCost = cost;
     request.EstimatedTime = time;

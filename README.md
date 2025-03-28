@@ -36,6 +36,12 @@ dotnet run --project FreelanceQuoteGenerator.AppHost
 
 Go to the `Login to the dashboard` URL found in the console log
 
+This dashboard will allow to access all of the services running, view logs and configuration
+
+
+## Notes
+
+The Quote API uses Scaler for Open API documentation, this is available at `{quoteapi_URL}/scaler-reference`
 
 
 
