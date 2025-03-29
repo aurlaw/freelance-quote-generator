@@ -1,6 +1,5 @@
 <template>
   <div class="bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-md">
-    <h1 class="text-2xl font-bold mb-6 text-center">Freelance Quote Generator (Vue)</h1>
     <form @submit.prevent="handleSubmit" class="space-y-4">
       <div>
         <label class="block text-sm font-medium mb-1">Project Type</label>

@@ -27,9 +27,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex items-center justify-center p-4">
       <div className="bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-md">
-        <h1 className="text-2xl font-bold mb-6 text-center">Freelance Quote Generator</h1>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-sm font-medium mb-1">Project Type</label>
@@ -92,6 +90,5 @@ export default function Home() {
           </div>
         )}        
       </div>
-    </div>
   );
 }

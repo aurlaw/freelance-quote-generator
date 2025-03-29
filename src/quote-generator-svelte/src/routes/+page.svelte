@@ -24,13 +24,12 @@
     }
   </script>
   
-  <div class="min-h-screen bg-gray-900 text-white flex items-center justify-center p-4">
     <div class="bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-md">
-      <h1 class="text-2xl font-bold mb-6 text-center">Freelance Quote Generator (Svelte)</h1>
       <form on:submit|preventDefault={handleSubmit} class="space-y-4">
         <div>
-          <label class="block text-sm font-medium mb-1">Project Type</label>
+          <label for="projectType" class="block text-sm font-medium mb-1">Project Type</label>
           <select
+            id="projectType"
             bind:value={formData.projectType}
             class="w-full p-2 bg-gray-700 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
@@ -40,8 +39,9 @@
           </select>
         </div>
         <div>
-          <label class="block text-sm font-medium mb-1">Scope</label>
+          <label for="scope"  class="block text-sm font-medium mb-1">Scope</label>
           <select
+            id="scope"
             bind:value={formData.scope}
             class="w-full p-2 bg-gray-700 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
@@ -51,8 +51,9 @@
           </select>
         </div>
         <div>
-          <label class="flex items-center">
+          <label class="flex items-center" for="isRush">
             <input
+              id="isRush"
               type="checkbox"
               bind:checked={formData.isRush}
               class="mr-2 text-blue-500 focus:ring-blue-500"
@@ -84,4 +85,3 @@
         </div>
       {/if}
     </div>
-  </div>

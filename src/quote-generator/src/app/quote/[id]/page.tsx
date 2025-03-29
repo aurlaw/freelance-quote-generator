@@ -50,7 +50,6 @@ export default function QuoteDetail() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex items-center justify-center p-4">
       <div className="bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-md">
         <h1 className="text-2xl font-bold mb-6 text-center">Quote Details</h1>
         <div className="space-y-4">
@@ -73,7 +72,6 @@ export default function QuoteDetail() {
           Back to Home
         </Link>
       </div>
-    </div>
     </div>
   );
 }

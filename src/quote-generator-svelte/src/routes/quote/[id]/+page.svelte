@@ -40,7 +40,6 @@
   $: if (id) fetchQuote();
 </script>
 
-<div class="min-h-screen bg-gray-900 text-white flex items-center justify-center p-4">
   <div class="bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-md">
     <h1 class="text-2xl font-bold mb-6 text-center">Quote Details</h1>
     {#if loading}
@@ -73,4 +72,3 @@
       </div>
     {/if}
   </div>
-</div>
